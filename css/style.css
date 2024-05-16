@@ -1,0 +1,112 @@
+/*------------------------login画面css-------------------------*/
+.login-body{
+    background-image: url(/img/Ew201O2UYAMyJO7.png);
+    background-color: bisque;
+}
+.login-h1{
+    color: brown;
+    text-align: center;
+    margin-top: 100px;
+}
+.login-group{
+    width: 500px;
+    margin: auto;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.input-group{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.icon{
+    color: brown;
+    display: inline-block;
+    text-align: left;
+    width: 100px;
+}
+.shinki{
+    justify-content: center;
+    display: flex;
+}
+.login-link{
+    margin-top: 16px;
+}
+
+/*--------------------------------register画面css--------------------------------*/
+.register-body{
+    background-image: url(/img/chiikawa20210108_2.jpg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.register-h1{
+    color: rgb(107, 122, 189);
+    text-align: center;
+}
+.register-group{
+    width: 440px;
+    margin: auto;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.register-input-group{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.register-icon{
+    color: rgb(107, 122, 189);
+    display: inline-block;
+    text-align: left;
+    width: 100px;
+}
+
+/*----------------------------------blog_list画面css-------------------------------*/
+.logo{
+    background-color: antiquewhite;
+}
+.logout{
+    position: absolute;
+    top: 5px;
+    right: 3%;
+    color: brown;
+    list-style-type: none;
+
+}
+h2{
+    color: brown;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    margin-bottom: 50px;
+}
+.blog-register{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.blog-register-btn{
+    color: #fff;
+    background-color: #eb6100;
+    padding: 0.5rem 1rem;
+    border: solid 1px black;
+    border-radius: 5px;
+}
+.blog-list-img{
+    text-align: center;
+    border: solid antiquewhite;
+    background-color: antiquewhite;
+}
+.blog-list-footer{
+    width: 100%;
+    color: brown;
+    background-color: antiquewhite;
+    text-align: center;
+    margin: 0 auto;
+}
