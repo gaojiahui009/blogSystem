@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログ編集</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="blog-body">
+    <header>
+        <div class="logo">
+            <a href=""><img src="/img/logo.png" alt=""></a>
+        </div>
+        <ul class="logo-list">
+            <li><a href="/blog_list.html">ブログ一覧</a></li>
+            <li><a href="">ログアウト</a></li>
+        </ul>
+        <h2>ブログ編集</h2>
+    </header>
+    <main>
+        <div class="blog-register-inner">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="blog-register-details">
+                    <div class="blog-register-title">
+                        <div class="blog-register-icon">タイトル</div>
+                        <input type="text" name="blogTitle" value="" id="adminName">
+                    </div>
+                    <div class="blog-register-date">
+                        <div class="blog-register-icon">更新日</div>
+                        <input type="date" name="blogDate">
+                    </div>
+                    <div class="blog-register-uploadImg">
+                        <div class="blog-register-icon">ブログ画像</div>
+                        <input type="file" name="blogImg">
+                    </div>
+                    <div class="blog-register-content">
+                        <div class="blog-register-icon">ブログ内容</div>
+                        <textarea name="blogContent" placeholder="天気がいいから、散歩しましょう！"></textarea>
+                    </div>
+                </div>
+                <div class="blog-register-btn">
+                    <button class="enter-btn">更新</button>
+                    <button class="back-btn" onclick="history.back();" type="button">戻る</button>
+                </div>
+                <div class="blog-delete-btn">
+                    <button class="delete-btn" formaction="">削除</button>
+                </div>
+            </form>
+        </div>
+        <div class="blog-bottom-img">
+            <img src="/img/85768331_480x415.gif" alt="">
+        </div>
+    </main>
+    <footer class="blog-footer">
+        <div>
+            <small>&copy; 2024 Chiikawa</small>
+        </div>
+    </footer>
+</body>
+</html>
