@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログ作成</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="blog-body">
+    <header>
+        <div class="logo">
+            <a href=""><img th:src="@{/img/logo.png}" alt=""></a>
+        </div>
+        <ul class="logo-list">
+			<li th:text="${adminName}"></li>
+			<li><a th:href="@{/blog/list}">ブログ一覧</a></li>
+			<li><a th:href="@{/admin/logout}">ログアウト</a></li>
+        </ul>
+        <h2>ブログ作成</h2>
+    </header>
+    <main>
+ 
+        <div class="blog-register-inner">
+            <form th:action="@{/blog/register/process}" method="post" enctype="multipart/form-data">
+                <div class="blog-register-details">
+                    <div class="blog-register-title">
+                        <div class="blog-register-icon">タイトル</div>
+                        <input type="text" name="blogTitle" value="" id="adminName">
+                    </div>
+                    <div class="blog-register-date">
+                        <div class="blog-register-icon">作成日</div>
+                        <input type="date" name="blogDate">
+                    </div>
+                    <div class="blog-register-uploadImg">
+                        <div class="blog-register-icon">ブログ画像</div>
+                        <input type="file" name="blogImg">
+                    </div>
+                    <div class="blog-register-content">
+                        <div class="blog-register-icon">ブログ内容</div>
+                        <textarea name="blogContent" placeholder="天気がいいから、散歩しましょう！"></textarea>
+                    </div>
+                </div>
+                <div class="blog-register-btn">
+                    <button class="enter-btn">ブログ作成</button>
+                    <button class="back-btn" onclick="history.back();" type="button">戻る</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="blog-bottom-img">
+            <img th:src="@{/img/85768331_480x415.gif}" alt="">
+        </div>
+    </main>
+    <footer class="blog-footer">
+        <div>
+            <small>&copy; 2024 Chiikawa</small>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規登録</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="register-body">
+    <header>
+        <h1 class="register-h1">Register</h1>
+    </header>
+    <main class="register-group">
+        <form th:action="@{/admin/register/process}" method="post">
+        <div class="register-input-group">
+            <label class="register-icon" for="email">Email</label>
+            <input type="text" class="input" name="adminEmail" id="email" required>
+        </div>
+        <div class="register-input-group">
+            <label class="register-icon" for="username">Username</label>
+            <input type="text" class="input" name="adminName" id="username" required>
+        </div>
+        <div class="register-input-group">
+            <label class="register-icon" for="password">Password</label>
+            <input type="password" class="input" name="password" id="password" required>
+        </div>
+        <div class="btn">
+            <button>新規登録</button>
+        </div>
+    </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログリスト</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="blog-body">
+    <header>
+        <div class="logo">
+            <a href=""><img th:src="@{/img/logo.png}" alt=""></a>
+        </div>
+        <ul class="logo-list">
+			<li>ようこそ！</li>
+			<li th:text="${adminName}"></li>
+            <li><a th:href="@{/blog/list}">ブログ一覧</a></li>
+            <li><a th:href="@{/admin/logout}">ログアウト</a></li>
+        </ul>
+        <h2>ブログ一覧</h2>
+    </header>
+    <main>
+        <article>
+            <section>
+                <div class="blog-list-register">
+                    <a th:href="@{/blog/register}" class="blog-list-register-btn">新規ブログ作成</a>
+                </div>
+            </section>
+            <ul class="blogs">
+                <li class="blogs-li" th:each="blog:${blogList}">
+                    <a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+                        <img class="blogs-img" th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImg})}" alt="">
+					</a>
+						<p class="blogs-p" th:text="${blog.blogTitle}"></p><br>
+                        <p class="blogs-p" th:text="${blog.blogDate}"></p>
+						<p class="blogs-p" th:text="${blog.blogContent}"></p>
+
+                </li>
+            </ul>
+        </article>
+        <div class="blog-list-backBtn">
+            <button class="back-btn" onclick="history.back();" type="button">戻る</button>
+        </div>
+        <div class="blog-bottom-img">
+            <img th:src="@{/img/85768331_480x415.gif}" alt="">
+        </div>
+    </main>
+    <footer class="blog-footer">
+        <div>
+            <small>&copy; 2024 Chiikawa</small>
+        </div>
+    </footer>
+</body>
+</html>
