@@ -4,26 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ブログ編集</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body class="blog-body">
     <header>
         <div class="logo">
-            <a href=""><img src="/img/logo.png" alt=""></a>
+            <a href=""><img th:src="@{/img/logo.png}" alt=""></a>
         </div>
         <ul class="logo-list">
-            <li><a href="/blog_list.html">ブログ一覧</a></li>
-            <li><a href="">ログアウト</a></li>
+			<li th:text="${adminName}"></li>
+            <li><a th:href="@{/blog/list}">ブログ一覧</a></li>
+            <li><a th:href="@{/admin/logout}">ログアウト</a></li>
         </ul>
         <h2>ブログ編集</h2>
     </header>
     <main>
         <div class="blog-register-inner">
-            <form action="" method="post" enctype="multipart/form-data">
+            <form th:action="@{/blog/edit/process}" method="post" enctype="multipart/form-data">
                 <div class="blog-register-details">
                     <div class="blog-register-title">
                         <div class="blog-register-icon">タイトル</div>
-                        <input type="text" name="blogTitle" value="" id="adminName">
+                        <input type="text" name="blogTitle" th:value="${blog.blogTitle}" id="adminName">
                     </div>
                     <div class="blog-register-date">
                         <div class="blog-register-icon">更新日</div>
@@ -35,20 +36,24 @@
                     </div>
                     <div class="blog-register-content">
                         <div class="blog-register-icon">ブログ内容</div>
-                        <textarea name="blogContent" placeholder="天気がいいから、散歩しましょう！"></textarea>
+                        <textarea name="blogContent" placeholder="天気がいいから、散歩しましょう！" th:text="${blog.blogContent}"></textarea>
                     </div>
                 </div>
                 <div class="blog-register-btn">
+					<input type="hidden" name="blogId" th:value="${blog.blogId}">
                     <button class="enter-btn">更新</button>
                     <button class="back-btn" onclick="history.back();" type="button">戻る</button>
                 </div>
-                <div class="blog-delete-btn">
-                    <button class="delete-btn" formaction="">削除</button>
-                </div>
-            </form>
+			</form>
+			<form th:action="@{/blog/delete}" method="post">
+				<div class="blog-delete-btn">
+					<input type="hidden" name="blogId" th:value="${blog.blogId}">
+				    <button class="delete-btn">削除</button>
+				</div>
+			</form>
         </div>
         <div class="blog-bottom-img">
-            <img src="/img/85768331_480x415.gif" alt="">
+            <img th:src="@{/img/85768331_480x415.gif}" alt="">
         </div>
     </main>
     <footer class="blog-footer">

@@ -109,9 +109,9 @@ h2{
 }
 
 .blogs-img {
-	margin: 0 auto;
     padding: 0.5rem;
     box-sizing: border-box;
+    width: 100%;
 }
 
 .blogs-p {
