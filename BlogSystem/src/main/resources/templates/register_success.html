@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登録成功</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="register-success">
+    <header></header>
+    <main>
+        <h1 class="login-h1">登録成功しました！</h1>
+        <form th:action="@{/admin/register/success/process}" method="post">
+            <div class="register-success-btn">
+                <button type="submit">ログイン画面へ</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

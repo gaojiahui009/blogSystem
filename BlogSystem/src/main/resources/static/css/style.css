@@ -226,3 +226,23 @@ textarea{
 .blog-delete-btn{
     text-align: center;
 }
+/*----------------------------------register-success画面css-------------------------------*/
+.register-success{
+    background-image: url(/img/regSuccess.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    background-attachment: fixed;
+}
+.register-success-btn{
+    text-align: center;
+
+}
+/*----------------------------------blog-register-success画面css-------------------------------*/
+.blog-register-success{
+    background-image: url(/img/WechatIMG869.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    background-attachment: fixed;
+}

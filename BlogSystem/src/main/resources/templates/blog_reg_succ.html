@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログを登録されました！</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="blog-register-success">
+    <main>
+        <h1 class="login-h1">ブログを登録されました！</h1>
+        <form th:action="@{/blog/register/success/process}" method="post">
+            <div class="register-success-btn">
+                <button type="submit">ブログ一覧画面へ</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

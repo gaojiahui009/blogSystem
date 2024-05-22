@@ -74,7 +74,7 @@ public class BlogRegisterController {
 				e.printStackTrace();
 			}
 			if(blogService.createBlog(blogTitle, blogDate, fileName, blogContent, admin.getAdminId())) {
-				return "redirect:/blog/list";
+				return "blog_reg_succ.html";
 			} else {
 				return "blog_register.html";
 			}

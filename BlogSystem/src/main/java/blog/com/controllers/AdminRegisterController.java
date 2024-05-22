@@ -28,7 +28,7 @@ public class AdminRegisterController {
 		//もし、createAdminがtrue login.htmll
 		//そうでない場合、register.htmllことどまります。
 		if(adminService.createAdmin(adminEmail, adminName, password)) {
-			return "login.html";
+			return "register_success.html";
 		} else {
 			return "register.html";
 		}
