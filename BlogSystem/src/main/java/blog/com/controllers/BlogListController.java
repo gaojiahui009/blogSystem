@@ -26,10 +26,10 @@ public class BlogListController {
 		//セッションからログインしている人の情報を取得
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
 		//もし、admin==null ログイン画面ににリダイレクトする
-		//そうでない場合
-		//ログインしている人の名前の情報を画面に渡してblog一覧のhtmlを表示
 		if(admin == null) {
 			return "redirect:/admin/login";
+		//そうでない場合
+		//ログインしている人の名前の情報を画面に渡してblog一覧のhtmlを表示
 		} else {
 			//ブログの情報を取得
 			List<Blog> blogList = blogService.selectAllBlogList(admin.getAdminId());

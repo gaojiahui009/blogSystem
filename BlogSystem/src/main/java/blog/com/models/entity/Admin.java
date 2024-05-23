@@ -22,12 +22,14 @@ public class Admin {
 	public Admin() {
 	}
 	
+	//コンストラクタ(No adminId)
 	public Admin(String adminEmail, String adminName, String password) {
 		this.adminEmail = adminEmail;
 		this.adminName = adminName;
 		this.password = password;
 	}
 
+	//全てのgetterとsetter
 	public Long getAdminId() {
 		return adminId;
 	}

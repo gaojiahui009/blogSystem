@@ -33,12 +33,12 @@ public class AdminLoginController {
 		//logincheckメソッドを呼び出してその結果をadminとlう変数に格納
 		Admin admin = adminService.loginCheck(adminEmail, password);
 		//もし、admin==nu11ログイン画面ににとどまります。
-		//そうでない場合は、sessionにログイン情報に保存
-		//商品一覧画面|にリダイレクトする
 		if(admin == null) {
 			return "login.html";
+		//そうでない場合は、sessionにログイン情報に保存
 		} else {
 			session.setAttribute("loginAdminInfo", admin);
+		//blog一覧画面|にリダイレクトする
 			return "redirect:/blog/list";
 		}
 	}

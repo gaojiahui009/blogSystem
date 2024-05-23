@@ -13,29 +13,28 @@ public class AdminService {
 	private AdminDao adminDao;
 	
 	//保存処理
-	//もし、findByAdminEmail==nullだったら登録処理をします
-	//saveメソッドを使用して登録処理をする
-	//保存ができた5true
-	//そうでない場合、保存処理失敗 false
 	
 	public boolean createAdmin(String adminEmail, String adminName, String password) {
+		//もし、findByAdminEmail==nullだったら登録処理をします
 		if(adminDao.findByAdminEmail(adminEmail) == null) {
 			adminDao.save(new Admin(adminEmail, adminName, password));
+		//saveメソッドを使用して登録処理をする
+		//保存ができたらtrue
 			return true;
+		//そうでない場合、保存処理失敗 false
 		} else {
 			return false;
 		}
 	}
 
 	//ログイン処理
-	//もU、emailとpasswordがfindByAdminEmailAndpasswordを使用して存在しなか)左場合==nu11の場合.
-	//その場合は、存在しないnul1であることをコントロ-ラ-クラスに知らせる
-	//そうでない場合ログネンしている人の情報をコントロ-ラ-クラスに渡す
-	
 	public Admin loginCheck(String adminEmail, String password) {
 		Admin admin = adminDao.findByAdminEmailAndPassword(adminEmail, password);
+		//もし、emailとpasswordがfindByAdminEmailAndPasswordを使用して存在しなかた場合==nu11の場合.
+		//その場合は、存在しないnullであることをコントロ-ラ-クラスに知らせる
 		if(admin == null) {
 			return null;
+		//そうでない場合ログネンしている人の情報をコントロ-ラ-クラスに渡す
 		} else {
 			return admin;
 		}

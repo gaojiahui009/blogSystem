@@ -26,9 +26,9 @@ public class AdminRegisterController {
 										@RequestParam String adminName,
 										@RequestParam String password) {
 		//もし、createAdminがtrue login.htmll
-		//そうでない場合、register.htmllことどまります。
 		if(adminService.createAdmin(adminEmail, adminName, password)) {
 			return "register_success.html";
+		//そうでない場合、register.htmllことどまります。
 		} else {
 			return "register.html";
 		}

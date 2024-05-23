@@ -27,10 +27,10 @@ public class BlogDeleteController {
 		} else {
 			//もし、deleteBlogの結果がtrueだったら
 			// blogの-覧ペ-ジこリダイレクト
-			//そうでない場合
-			//編集画面ににこリダイレクトする
 			if(blogService.deleteBlog(blogId)) {
 				return "redirect:/blog/list";
+			//そうでない場合
+			//編集画面ににこリダイレクトする
 			} else {
 				return "redirect:/blog/edit" + blogId;
 			}

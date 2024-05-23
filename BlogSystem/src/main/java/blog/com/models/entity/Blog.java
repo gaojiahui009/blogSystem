@@ -22,9 +22,11 @@ public class Blog {
 	 //addmin_id
 	 private Long adminId;
 	 
+	//空のコンストラクタ
 	public Blog() {
 	}
 
+	//コンストラクタ(No blogId)
 	public Blog(String blogTitle, String blogDate, String blogImg, String blogContent, Long adminId) {
 		this.blogTitle = blogTitle;
 		this.blogDate = blogDate;
@@ -33,6 +35,7 @@ public class Blog {
 		this.adminId = adminId;
 	}
 
+	//全てのgetterとsetter
 	public Long getBlogId() {
 		return blogId;
 	}

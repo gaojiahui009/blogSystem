@@ -33,12 +33,12 @@ public class BlogRegisterController {
 		//セッションからログインしている人の情報をadminとlう変数に格納
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
 		//もし admin==nul1 ログイン画面にリダイレクトする
-		//そうでない場合は、ログインしている人の名前を画面に渡す
-		//登録のhtm1を表示させる
 		if(admin == null) {
 			return "redirect:/admin/login";
+		//そうでない場合は、ログインしている人の名前を画面に渡す
 		} else {
 			model.addAttribute("adminName", admin.getAdminName());
+			//登録のhtmlを表示させる
 			return "blog_register.html";
 		}
 	}
@@ -52,13 +52,10 @@ public class BlogRegisterController {
 		//セッションからログインしている人の情報をadminとlう変数に格納
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
 		//もし、admin==nul1だったら、ログイン画面にリダイレクトする
-		//そうでない場合は、画像のフアイル名を取得
-		//画像のアップロ-ド
-		//もし、同じフアイルの名前がなかったら保存
-		//-覧画面ににリダイレクトする
-		//そうでない場合、登録画面にとどまります。
 		if(admin == null) {
 			return "redirect:/admin/login";
+		//そうでない場合は、画像のフアイル名を取得
+		//画像のアップロ-ド
 		} else {
 			//ファイルの名前を取得
 			/*
@@ -73,8 +70,11 @@ public class BlogRegisterController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			//もし、同じフアイルの名前がなかったら保存
+			//一覧画面にリダイレクトする
 			if(blogService.createBlog(blogTitle, blogDate, fileName, blogContent, admin.getAdminId())) {
 				return "blog_reg_succ.html";
+			//そうでない場合、登録画面にとどまります。
 			} else {
 				return "blog_register.html";
 			}

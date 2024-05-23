@@ -41,10 +41,10 @@ public class BlogEditController {
 			//編集画面に表示させる情報を変数に格納 blog
 			Blog blog = blogService.blogEditCheck(blogId);
 			//もしblog==nullだったら、blog一覧ペ-ジこリリダイレクトする
-			//そうでない場合、編集画面に編集する内容を渡す
-			//編集画面を表示
 			if(blog == null) {
 				return "redirect:/blog/list";
+			//そうでない場合、編集画面に編集する内容を渡す
+			//編集画面を表示
 			}else {
 				model.addAttribute("adminName", admin.getAdminName());
 				model.addAttribute("blog", blog);
@@ -62,29 +62,28 @@ public class BlogEditController {
 							@RequestParam Long blogId) {
 		//セッションからログインしている人の情報をadminとlう変数に格納
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
-		//もし、admin == nullだったら、ログイン画面ににリダイレクトする
-		//そうでない場合、
-		/*
-		 * 現在の日時情報を元に、フアイル名を作成しています。simpleDateFormatクラスを使用して、日時のフオ-マットを指定している
-		 *具体的(は、"yyyy-MM-dd-HH-mm-ss-"の形式でフオ-マットされた文字列を取得している
-		 *その後、blogImageオプジエクトから元のフアイル名を取得し、フオ-マットされた日時文字列と連結して、fileName变数に代入
-		 */
-		
-		//フアイルの保存
-		//もし、blogUpdateの結果がtrueの場合は、blog一覧ににリダイレクト
-		//そうでない場合、blog編集画面ににリダイレクトする
+		//もし、admin == nullだったら、ログイン画面ににリダイレクトする	
 		if(admin == null) {
 			return "redirect:/admin/login";
+		//そうでない場合、
+		/*
+		* 現在の日時情報を元に、フアイル名を作成しています。simpleDateFormatクラスを使用して、日時のフオ-マットを指定している
+		*具体的(は、"yyyy-MM-dd-HH-mm-ss-"の形式でフオ-マットされた文字列を取得している
+		*その後、blogImageオプジエクトから元のフアイル名を取得し、フオ-マットされた日時文字列と連結して、fileName变数に代入
+		*/
 		}else {
 			String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-").format(new Date())
 					+ blogImg.getOriginalFilename();
+			//フアイルの保存
 			try {
 				Files.copy(blogImg.getInputStream(), Path.of("src/main/resources/static/blog-img/"+fileName));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			//もし、blogUpdateの結果がtrueの場合は、blog一覧にリダイレクト
 			if(blogService.blogUpdate(blogId, blogTitle, blogDate, fileName, blogContent, admin.getAdminId())) {
 				return "redirect:/blog/list";
+			//そうでない場合、blog編集画面ににリダイレクトする
 			} else {
 				return "redirect:/blog/edit"+blogId;
 			}
